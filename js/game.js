@@ -1,5 +1,5 @@
 let canvas;
-let character = new MovableObject();
+let character = new Character();
 let ctx;
 
 function init() {
