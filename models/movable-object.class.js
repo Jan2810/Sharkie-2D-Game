@@ -25,7 +25,7 @@ class MovableObject {
     }
 
     moveLeft() {
-
+        
     }
 
     moveUp() {
