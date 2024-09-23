@@ -42,9 +42,11 @@ class Character extends MovableObject {
         setInterval(() => {
             if(this.world.keyboard.UP) {
                 this.y -= this.speed;
+                this.swimming_sound.play();
             }
             if(this.world.keyboard.DOWN) {
                 this.y += this.speed;
+                this.swimming_sound.play();
             }
         }, 1000 / 60);
 
