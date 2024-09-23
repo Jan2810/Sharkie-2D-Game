@@ -1,38 +1,6 @@
 class World {
     character = new Character();
-    enemies = [
-        new PufferFish(),
-        new PufferFish(),
-        new JellyFish(),
-        new JellyFish(),
-    ];
-    backgroundObjects = [
-        new BackgroundObject('img/3. Background/Layers/5. Water/L1.png', 0, 0),
-        new BackgroundObject('img/3. Background/Layers/4.Fondo 2/L1.png', 0, 0),
-        new BackgroundObject('img/3. Background/Layers/3.Fondo 1/L1.png', 0, 0),
-        new BackgroundObject('img/3. Background/Layers/2. Floor/L1.png', 0, 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/1. Light/1.png', 0, 0),
-        new BackgroundObject('img/3. Background/Layers/5. Water/L2.png', 720, 0),
-        new BackgroundObject('img/3. Background/Layers/4.Fondo 2/L2.png', 720, 0),
-        new BackgroundObject('img/3. Background/Layers/3.Fondo 1/L2.png', 720, 0),
-        new BackgroundObject('img/3. Background/Layers/2. Floor/L2.png', 720, 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/1. Light/2.png', 720, 0),
-        new BackgroundObject('img/3. Background/Layers/5. Water/L1.png', 1440, 0),
-        new BackgroundObject('img/3. Background/Layers/4.Fondo 2/L1.png', 1440, 0),
-        new BackgroundObject('img/3. Background/Layers/3.Fondo 1/L1.png', 1440, 0),
-        new BackgroundObject('img/3. Background/Layers/2. Floor/L1.png', 1440, 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/1. Light/1.png', 1440, 0),
-        new BackgroundObject('img/3. Background/Layers/5. Water/L2.png', 2160, 0),
-        new BackgroundObject('img/3. Background/Layers/4.Fondo 2/L2.png', 2160, 0),
-        new BackgroundObject('img/3. Background/Layers/3.Fondo 1/L2.png', 2160, 0),
-        new BackgroundObject('img/3. Background/Layers/2. Floor/L2.png', 2160, 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/1. Light/2.png', 2160, 0),
-        new BackgroundObject('img/3. Background/Layers/5. Water/L1.png', 2880, 0),
-        new BackgroundObject('img/3. Background/Layers/4.Fondo 2/L1.png', 2880, 0),
-        new BackgroundObject('img/3. Background/Layers/3.Fondo 1/L1.png', 2880, 0),
-        new BackgroundObject('img/3. Background/Layers/2. Floor/L1.png', 2880, 0),
-        new BackgroundObject('img/3. Background/Legacy/Layers/1. Light/1.png', 2880, 0),
-    ];
+    level = level1;
     canvas;
     ctx;
     keyboard;
@@ -55,8 +23,8 @@ class World {
 
         this.ctx.translate(this.camera_x, 0);
 
-        this.addObjectsToMap(this.backgroundObjects);
-        this.addObjectsToMap(this.enemies);
+        this.addObjectsToMap(this.level.backgroundObjects);
+        this.addObjectsToMap(this.level.enemies);
         this.addToMap(this.character);
 
         this.ctx.translate(-this.camera_x, 0);
