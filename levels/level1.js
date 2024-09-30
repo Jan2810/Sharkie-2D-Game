@@ -2,8 +2,12 @@ const level1 = new Level(
     enemies = [
         new PufferFish(),
         new PufferFish(),
+        new PufferFishRed(),
+        new PufferFishRed(),
         new JellyFish(),
         new JellyFish(),
+        new JellyFishGreen(),
+        new JellyFishYellow(),
         new Endboss(),
     ],
     backgroundObjects = [
