@@ -17,7 +17,7 @@ class PufferFishRed extends MovableObject {
 
         this.x = 200 + Math.random()*2160;
         this.y = Math.random()*320;
-        this.speed = Math.random() * 0.4;
+        this.speed = Math.random() * 0.8;
 
         this.animate();
     }
