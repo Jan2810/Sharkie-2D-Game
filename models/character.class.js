@@ -4,7 +4,7 @@ class Character extends MovableObject {
     height = 200;
     width = 200;
     x = 0;
-    y = 10;
+    y = 0;
     speed = 5;
     IMAGES_SWIMMING = [
         'img/1.Sharkie/3.Swim/1.png',
@@ -20,7 +20,7 @@ class Character extends MovableObject {
     constructor() {
         super().loadImage('img/1.Sharkie/3.Swim/1.png');
         this.loadImages(this.IMAGES_SWIMMING);
-
+        this.applayGravity();
         this.animate();
     }
 
@@ -38,13 +38,12 @@ class Character extends MovableObject {
             }
             this.world.camera_x = -this.x;
         }, 1000 / 60);
-
         setInterval(() => {
-            if(this.world.keyboard.UP) {
+            if(this.world.keyboard.UP && this.y > -70) {
                 this.y -= this.speed;
                 this.swimming_sound.play();
             }
-            if(this.world.keyboard.DOWN) {
+            if(this.world.keyboard.DOWN && this.y < 310) {
                 this.y += this.speed;
                 this.swimming_sound.play();
             }
