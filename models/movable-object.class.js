@@ -11,6 +11,7 @@ class MovableObject {
     speedY = 2;
     acceleration = 1;
     energy = 100;
+    lastHit = 0;
 
     applayGravity() {
         setInterval(() => {
@@ -57,15 +58,21 @@ class MovableObject {
     //         (this.Y + this.offsetY + this.height) >= obj.Y &&
     //         (this.Y + this.offsetY) <= (obj.Y + obj.height) &&
     //         obj.onCollisionCourse; // Optional: hiermit könnten wir schauen, ob ein Objekt sich in die richtige Richtung bewegt. Nur dann kollidieren wir. Nützlich bei Gegenständen, auf denen man stehen kann.
-
     // }
 
     hit() {
         this.energy -= 10;
         if (this.energy < 0) {
             this.energy = 0;
-            console.log('Character is dead');
+        } else {
+            this.lastHit = new Date().getTime();
         }
+    }
+
+    isHurt() {
+        let timePassed = new Date().getTime() - this.lastHit;
+        timePassed = timePassed / 1000;
+        return timePassed < 1;
     }
 
     isDead() {

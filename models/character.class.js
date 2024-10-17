@@ -103,6 +103,7 @@ class Character extends MovableObject {
             }
             this.world.camera_x = -this.x;
         }, 1000 / 60);
+
         setInterval(() => {
             if (this.world.keyboard.UP && this.y > -70) {
                 this.y -= this.speed;
@@ -118,11 +119,15 @@ class Character extends MovableObject {
             if (this.isDead()) {
                 this.playAnimationOnce(this.IMAGES_POISONED_DEAD);
             } else {
-                if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
-                    this.playAnimation(this.IMAGES_SWIMMING);
+                if (this.isHurt()) {
+                    this.playAnimation(this.IMAGES_POISONED_HURT);
                 } else {
-                    if (!this.world.keyboard.RIGHT || !this.world.keyboard.LEFT || !this.world.keyboard.UP || !this.world.keyboard.DOWN) {
-                        this.playAnimation(this.IMAGES_IDLE);
+                    if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT || this.world.keyboard.UP || this.world.keyboard.DOWN) {
+                        this.playAnimation(this.IMAGES_SWIMMING);
+                    } else {
+                        if (!this.world.keyboard.RIGHT || !this.world.keyboard.LEFT || !this.world.keyboard.UP || !this.world.keyboard.DOWN) {
+                            this.playAnimation(this.IMAGES_IDLE);
+                        }
                     }
                 }
             }
